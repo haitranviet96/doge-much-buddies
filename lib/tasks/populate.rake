@@ -2,7 +2,6 @@ namespace :fill do
   desc 'Fill data'
   task data: :environment do
     require 'faker'
-    require 'populator'
     puts 'Erasing existing data'
     puts '====================='
 
@@ -13,15 +12,15 @@ namespace :fill do
     puts 'Creating users'
     puts '=============='
     genders = ['male', 'female']
-    password = 'socify'
+    password = '12345678'
 
-    User.populate 20 do |user|
+    20.times do
+      user = User.new(password: password)
       user.name = Faker::Name.name
       user.email = Faker::Internet.email
       user.sex = genders
       user.dob = Faker::Date.between(45.years.ago, 15.years.ago)
       user.phone_number = Faker::PhoneNumber.cell_phone
-      user.encrypted_password = User.new(password: password).encrypted_password
       user.confirmed_at = DateTime.now
       user.sign_in_count = 0
       user.posts_count = 0
