@@ -27,6 +27,9 @@ group :development do
   gem 'letter_opener'
   gem 'guard'
   gem 'guard-rspec', '~> 4.2.8'
+
+  # Use Dotenv for environment variables
+  gem 'dotenv', '~> 2.2.1'
 end
 
 group :development, :test do
@@ -43,6 +46,18 @@ group :production do
 end
 
 gem 'devise'
+
+# Use Omniauth Facebook plugin
+gem 'omniauth-facebook', '~> 4.0'
+# Use Omniauth Github plugin
+gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
+# Use Omniauth Google plugin
+gem 'omniauth-google-oauth2', '~> 0.4.1'
+# Use Omniauth Twitter plugin
+gem 'omniauth-twitter', '~> 1.2', '>= 1.2.1'
+# Use ActiveRecord Sessions
+gem 'activerecord-session_store', '~> 1.0'
+
 gem 'carrierwave'
 gem 'friendly_id', '~> 5.0'
 
