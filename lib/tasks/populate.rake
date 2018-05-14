@@ -24,14 +24,15 @@ namespace :fill do
       user.confirmed_at = DateTime.now
       user.sign_in_count = 0
       user.posts_count = 0
+      user.save!
       puts "created user #{user.name}"
     end
 
 
-    user = User.new(name: 'Rails', email: 'test@socify.com', sex: 'female', password: 'password')
+    user = User.new(name: 'Hai Tran', email: 'test@doge.com', sex: 'female', password: '12345678')
     user.skip_confirmation!
     user.save!
-    puts 'Created test user with email=test@socify.com and password=password'
+    puts 'Created test user with email=test@doge.com and password=12345678'
 
     puts 'Generate Friendly id slug for users'
     puts '==================================='
