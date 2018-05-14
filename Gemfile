@@ -19,6 +19,7 @@ gem 'jquery-atwho-rails'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'font-awesome-rails'
+gem 'dotenv-rails', groups: [:development, :test]
 
 group :development do
   gem 'spring'
@@ -27,9 +28,6 @@ group :development do
   gem 'letter_opener'
   gem 'guard'
   gem 'guard-rspec', '~> 4.2.8'
-
-  # Use Dotenv for environment variables
-  gem 'dotenv', '~> 2.2.1'
 end
 
 group :development, :test do
