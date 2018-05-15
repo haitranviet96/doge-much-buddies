@@ -4,6 +4,8 @@ CarrierWave.configure do |config|
       provider:              'AWS', # required
       # aws_access_key_id:     Rails.application.secrets.aws_access_key_id, # required
       # aws_secret_access_key: Rails.application.secrets.aws_secret_access_key, # required
+      aws_access_key_id:     'xyz', # required
+      aws_secret_access_key: 'xyz', # required
       region:                'us-east-1', # optional, defaults to 'us-east-1'
     }
     config.fog_directory  = 'doge-much-buddies' # required
