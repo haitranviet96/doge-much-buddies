@@ -30,7 +30,6 @@ namespace :fill do
 
 
     user = User.new(name: 'Hai Tran', email: 'test@doge.com', sex: 'female', password: '12345678')
-    user.skip_confirmation!
     user.save!
     puts 'Created test user with email=test@doge.com and password=12345678'
 
