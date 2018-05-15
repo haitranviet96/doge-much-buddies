@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/tcocca/acts_as_follower.git
+  revision: c5ac7b9601c4af01eb4d9112330b27be4d694ecc
+  branch: master
+  specs:
+    acts_as_follower (0.2.1)
+      activerecord (>= 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -39,13 +47,18 @@ GEM
       activemodel (= 5.1.6)
       activesupport (= 5.1.6)
       arel (~> 8.0)
+    activerecord-session_store (1.1.1)
+      actionpack (>= 4.0)
+      activerecord (>= 4.0)
+      multi_json (~> 1.11, >= 1.11.2)
+      rack (>= 1.5.2, < 3)
+      railties (>= 4.0)
     activesupport (5.1.6)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     acts_as_commentable (4.0.2)
-    acts_as_follower (0.2.1)
     acts_as_votable (0.10.0)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
@@ -69,6 +82,7 @@ GEM
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
     builder (3.2.3)
+    byebug (10.0.2)
     carrierwave (1.2.2)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
@@ -92,11 +106,17 @@ GEM
     diff-lcs (1.3)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.4.0)
+    dotenv-rails (2.4.0)
+      dotenv (= 2.4.0)
+      railties (>= 3.2, < 6.0)
     erubi (1.7.1)
     excon (0.62.0)
     execjs (2.7.0)
     faker (1.8.7)
       i18n (>= 0.7)
+    faraday (0.12.2)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.23)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
@@ -271,6 +291,7 @@ GEM
     guard-rspec (4.2.10)
       guard (~> 2.1)
       rspec (>= 2.14, < 4.0)
+    hashie (3.5.7)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (1.0.1)
@@ -284,6 +305,7 @@ GEM
       thor (>= 0.14, < 2.0)
     json (2.1.0)
     jsonapi-renderer (0.2.0)
+    jwt (1.5.6)
     kgio (2.11.2)
     launchy (2.4.3)
       addressable (~> 2.3)
@@ -309,6 +331,8 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.3)
     multi_json (1.13.1)
+    multi_xml (0.6.0)
+    multipart-post (2.0.0)
     nenv (0.3.0)
     netrc (0.11.0)
     nio4r (2.3.1)
@@ -319,6 +343,35 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    oauth (0.5.4)
+    oauth2 (1.4.0)
+      faraday (>= 0.8, < 0.13)
+      jwt (~> 1.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (>= 1.2, < 3)
+    omniauth (1.8.1)
+      hashie (>= 3.4.6, < 3.6.0)
+      rack (>= 1.6.2, < 3)
+    omniauth-facebook (4.0.0)
+      omniauth-oauth2 (~> 1.2)
+    omniauth-github (1.3.0)
+      omniauth (~> 1.5)
+      omniauth-oauth2 (>= 1.4.0, < 2.0)
+    omniauth-google-oauth2 (0.4.1)
+      jwt (~> 1.5.2)
+      multi_json (~> 1.3)
+      omniauth (>= 1.1.1)
+      omniauth-oauth2 (>= 1.3.1)
+    omniauth-oauth (1.1.0)
+      oauth
+      omniauth (~> 1.0)
+    omniauth-oauth2 (1.5.0)
+      oauth2 (~> 1.1)
+      omniauth (~> 1.2)
+    omniauth-twitter (1.4.0)
+      omniauth-oauth (~> 1.1)
+      rack
     orm_adapter (0.5.0)
     ovirt-engine-sdk (4.2.4)
       json (>= 1, < 3)
@@ -454,17 +507,20 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  activerecord-session_store (~> 1.0)
   acts_as_commentable
-  acts_as_follower
+  acts_as_follower!
   acts_as_votable (~> 0.10.0)
   auto_html (~> 1.6.4)
   autoprefixer-rails
   better_errors
   binding_of_caller
   bootstrap-sass (~> 3.2.0)
+  byebug
   carrierwave
   counter_culture (~> 0.1.33)
   devise
+  dotenv-rails
   faker
   fog
   fog-aws
@@ -476,6 +532,10 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   merit
+  omniauth-facebook (~> 4.0)
+  omniauth-github (~> 1.1, >= 1.1.2)
+  omniauth-google-oauth2 (~> 0.4.1)
+  omniauth-twitter (~> 1.2, >= 1.2.1)
   pg
   populator
   public_activity

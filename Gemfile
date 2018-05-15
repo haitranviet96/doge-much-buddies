@@ -15,10 +15,13 @@ gem 'merit'
 # Used to implement at.js for auto complete mentions/emojis
 gem 'jquery-atwho-rails'
 
+gem 'byebug'
+
 # Use twitter bootstrap sass
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'font-awesome-rails'
+gem 'dotenv-rails', groups: [:development, :test]
 
 group :development do
   gem 'spring'
@@ -43,6 +46,18 @@ group :production do
 end
 
 gem 'devise'
+
+# Use Omniauth Facebook plugin
+gem 'omniauth-facebook', '~> 4.0'
+# Use Omniauth Github plugin
+gem 'omniauth-github', '~> 1.1', '>= 1.1.2'
+# Use Omniauth Google plugin
+gem 'omniauth-google-oauth2', '~> 0.4.1'
+# Use Omniauth Twitter plugin
+gem 'omniauth-twitter', '~> 1.2', '>= 1.2.1'
+# Use ActiveRecord Sessions
+gem 'activerecord-session_store', '~> 1.0'
+
 gem 'carrierwave'
 gem 'friendly_id', '~> 5.0'
 
@@ -51,7 +66,7 @@ gem 'public_activity'
 
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'acts_as_commentable'
-gem 'acts_as_follower'
+gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 gem 'counter_culture', '~> 0.1.33'
 
 gem 'faker'
