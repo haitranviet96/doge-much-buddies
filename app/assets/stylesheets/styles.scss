@@ -196,3 +196,72 @@ p {
 .dropdown-menu > li > a {
   padding: 10px 30px;
 }
+
+#friends-requests {
+  li {
+    color: black;
+    background-color: $bg-color;
+    border-bottom: 1px solid $navbar-color;
+  }
+  i {
+    position: relative;
+  }
+  .sixty-percent {
+    display: inline-block;
+    width: 60%;
+  }
+  .forty-percent {
+    display: inline-block;
+    float: right;
+    width: 40%;
+  }
+  .friend-request, .friend-request-responded {
+    .friend-name {
+      padding-left: 10px;
+      padding-right: 20px;
+    }
+    .accept-request, .decline-request {
+      a {
+        border: 2px solid $navbar-color;
+        padding: 5px;
+      }
+      &:hover a {
+        border-color: black;
+      }
+      transition: 0.15s border-color;
+      transition: 0.15s background-color;
+    }
+    .accept-request {
+      a:hover {
+        background-color: black !important;
+      }
+      a {
+        background-color: $navbar-color;
+        color: white !important;
+      }
+    }
+    .decline-request {
+      a {
+        background-color: $bg-color;
+        color: black !important;
+      }
+      a:hover, &:hover {
+        background-color: white !important;
+      }
+    }
+    .accepted-request {
+      background: $navbar-color;
+      color: white;
+      padding: 5px;
+    }
+  }
+  .no-requests {
+    text-align: center;
+  }
+}
+
+#unresponded-friend-requests {
+  top: 0;
+  right: 5px;
+  background: #3F4EBF;
+}

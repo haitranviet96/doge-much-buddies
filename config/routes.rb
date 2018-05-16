@@ -27,6 +27,10 @@ Rails.application.routes.draw do
 
   match :follow, to: 'follows#create', as: :follow, via: :post
   match :unfollow, to: 'follows#destroy', as: :unfollow, via: :post
+  match :friend, to: 'friends#create', as: :friend, via: :post
+  match :unfriend, to: 'friends#destroy', as: :unfriend, via: :post
+  resources :friends, only: [:create, :update, :destroy]
+
   match :like, to: 'likes#create', as: :like, via: :post
   match :unlike, to: 'likes#destroy', as: :unlike, via: :post
   match :find_friends, to: 'home#find_friends', as: :find_friends, via: :get

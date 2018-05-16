@@ -1,0 +1,18 @@
+<li class="friend-request" data-user-name="<%= sender.name %>">
+  <div class="sixty-percent">
+    <span class="friend-name"><%= sender.name %></span>
+  </div>
+  <div class="forty-percent">
+    <span class="accept-request">
+      <%= link_to "Accept",
+                  friend_path(id: sender.id),
+                  remote: true,
+                  method: "put" %>
+    </span>
+    <span class="decline-request">
+      <%= link_to "Decline",
+                  friend_path(id: sender.id),
+                  remote: true,                  method: :delete %>
+    </span>
+  </div>
+</li>

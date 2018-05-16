@@ -11,7 +11,7 @@ class NotificationChannel < ApplicationCable::Channel
     receiver_user_name = data['receiver_user_name']
     sender_user_name = data['sender_user_name']
     notification = data['notification']
-    receiver = User.find_by(name: receiver_user_name)
+    receiver = User.find_by(slug: receiver_user_name)
 
     ActionCable.server.broadcast(
         "notifications_#{receiver.id}",

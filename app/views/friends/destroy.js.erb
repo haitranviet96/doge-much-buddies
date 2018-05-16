@@ -1,0 +1,2 @@
+$("#user-<%= @user.id %> .friend").html("<%=j render('friends/form', user: @user) %>");
+$("#user-<%= @user.id %> .follow").html("<%=j render('follows/form', user: @user) %>");

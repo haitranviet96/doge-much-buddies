@@ -1,0 +1,4 @@
+<% current_user.pending_received_friend_requests.each do |user| %>
+  <%= render partial: "shared/dropdowns/friend_requests/request",
+             locals: { user: user } %>
+<% end %>

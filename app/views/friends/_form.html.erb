@@ -1,0 +1,18 @@
+<div class="friend">
+  <% friend = Friend.find_by_users(user.id, current_user.id) %>
+  <% if friend.nil? %>
+    <%= form_tag friend_path(id: user.id), method: :post, remote: true do %>
+      <%= button_tag 'Add Friend', class: 'btn btn-primary' %>
+    <% end %>
+  <% else %>
+    <% if friend.accepted? %>
+      <%= form_tag unfriend_path(id: user.id), method: :post, remote: true do %>
+        <%= button_tag 'Unfriend', class: 'btn btn-danger' %>
+      <% end %>
+    <% else %>
+      <%= form_tag unfriend_path(id: user.id), method: :post, remote: true do %>
+        <%= button_tag '✓ Requested', class: 'btn btn-basic' %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
