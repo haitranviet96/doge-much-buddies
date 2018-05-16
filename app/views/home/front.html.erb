@@ -1,23 +1,20 @@
 <div class="row">
-  <div id="newsfeed" class="col-lg-6">
-    <h4><%= fa_icon "newspaper-o" %> NEWSFEED</h4>
-    <div id="activities">
-      <% if @activities.empty? %>
-        <div class="well">
-          <%= render('shared/no_resource', resources: 'Activities') %>
-        </div>
-      <% else %>
-        <%= render_activities(@activities, layout: '/shared/activity') %>
-      <% end %>
-    </div>
-    <%= render 'shared/paginate', resources: @activities %>
-  </div>
-  <div id="intro" class="col-lg-6">
     <h1>Doge</h1>
-    <p>Doge is an open source social networking app written using <%= fa_icon 'diamond' %> Ruby on Rails. The source code of this app is on <a href="https://github.com/haitranviet96/doge-much-buddies"><%= fa_icon 'github' %> Github</a>.</p>
+     <img src="/app/assets/images/doge_icon.jpg" alt="Doge" style="width:500px;height:500px;"> 
+    <p>Doge is an social networking app written using <%= fa_icon 'diamond' %> Ruby on Rails. The source code of this app is on <a href="https://github.com/haitranviet96/doge-much-buddies"><%= fa_icon 'github' %> Github.
+    </a>
+    <p>
+    Our team members are:<br>
+    <ul style="list-style-type:disc">
+      <li>Nguyễn Công Hòa Cường</li>
+      <li>Nguyễn Quốc Huy</li>
+      <li>Nguyễn Ngọc Thành</li>
+      <li>Trần Việt Hải</li>
+      <li>Nguyễn Thanh Phong</li>
+    </ul>  
+    </p>
+    </p>
     <hr>
-    <a href="https://github.com/haitranviet96/doge-much-buddies" class="btn btn-warning">
-      <%= fa_icon 'star' %> Star it
     </a>
   </div>
 </div>
