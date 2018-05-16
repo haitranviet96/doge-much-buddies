@@ -4,6 +4,11 @@ class UsersController < ApplicationController
   before_action :check_ownership, only: [:edit, :update]
   respond_to :html, :js
 
+  def index
+    @q = User.ransack(params[:q])
+    @people = @q.result(distinct: true)
+  end
+
   def show
     @activities = PublicActivity::Activity.where(owner: @user).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
   end

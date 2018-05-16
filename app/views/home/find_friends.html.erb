@@ -5,12 +5,14 @@
   <div class="col-lg-6 well">
     <h3>Find Friends</h3>
     <hr>
-    <div id="users">
-      <%= render(@users) || render('shared/no_resource', resources: 'Users') %>
-    </div>
-    <%= render 'shared/paginate', resources: @users %>
-  </div>
-  <div class="col-lg-3">
-    <%= render 'shared/links' %>
-  </div>
-</div>
+
+<%= search_form_for(@q,
+    url: find_friends_path,
+    html: { method: :get}
+  ) do |f| %>
+    <%= f.label :name_cont %>
+    <%= f.search_field :name_cont %>
+    <%= f.submit %>
+      <% end %> 
+
+    <%= render(@people) %>

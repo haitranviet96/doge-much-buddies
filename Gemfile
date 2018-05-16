@@ -58,6 +58,8 @@ gem 'omniauth-twitter', '~> 1.2', '>= 1.2.1'
 # Use ActiveRecord Sessions
 gem 'activerecord-session_store', '~> 1.0'
 
+gem 'ransack'
+
 gem 'carrierwave'
 gem 'friendly_id', '~> 5.0'
 

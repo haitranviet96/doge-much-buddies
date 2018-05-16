@@ -13,8 +13,10 @@ class HomeController < ApplicationController
   end
 
   def find_friends
-    @friends = @user.all_following
-    @users =  User.where.not(id: @friends.unshift(@user)).paginate(page: params[:page])
+    @q = User.ransack(params[:q])
+    @people = @q.result(distinct: true)
+  #  @friends = @user.all_following
+  #  @users =  User.where.not(id: @friends.unshift(@user)).paginate(page: params[:page])
   end
 
   private
