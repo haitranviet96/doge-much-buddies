@@ -3,8 +3,8 @@ class FriendRequestBroadcastJob < ApplicationJob
 
   def perform(friend_request)
 
-    sender = User.find(friend_request.user_id)
-    receiver = User.find(friend_request.friend_id)
+    sender = User.find(friend_request.friend_id)
+    receiver = User.find(friend_request.user_id)
     ActionCable.server.broadcast(
         "notifications_#{receiver.id}",
         notification: 'friend-request-received',
@@ -19,7 +19,8 @@ class FriendRequestBroadcastJob < ApplicationJob
   def render_friend_request(sender, friend_request)
     ApplicationController.render(
         partial: 'friends/friend_request',
-        locals: { sender: sender }
+        locals: { sender: sender,
+        friend_request: friend_request}
     )
   end
 

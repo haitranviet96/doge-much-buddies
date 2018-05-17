@@ -5,14 +5,15 @@
   <div class="forty-percent">
     <span class="accept-request">
       <%= link_to "Accept",
-                  friend_path(id: sender.id),
+                  friend_path(id: friend_request.id),
                   remote: true,
                   method: "put" %>
     </span>
     <span class="decline-request">
       <%= link_to "Decline",
-                  friend_path(id: sender.id),
-                  remote: true,                  method: :delete %>
+                  friend_path(id: friend_request.id),
+                  remote: true,
+                  method: :delete %>
     </span>
   </div>
 </li>
