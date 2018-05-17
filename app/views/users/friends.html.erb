@@ -3,10 +3,10 @@
     <%= render 'shared/user_info' %>
   </div>
   <div class="col-lg-6 well">
-    <h3>Friends</h3>
+    <h3>Doggos</h3>
     <hr>
     <div id="friends">
-      <%= render(@friends) || render('shared/no_resource', resources: 'Friends') %>
+      <%= render(@friends) || render('shared/no_resource', resources: 'Doggos') %>
     </div>
     <%= render 'shared/paginate', resources: @friends %>
   </div>
