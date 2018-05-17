@@ -1,33 +1,34 @@
+$(document).on('turbolinks:load', function () {
 // when a friend request is accepted, mark it as accepted
-$('body').on('click', '.accept-request a', function () {
-    var sender_user_name = $('nav #user-name').html();
-    var receiver_user_name = $(this)
-        .parents('[data-user-name]')
-        .attr('data-user-name');
+    $('body').on('click', '.accept-request a', function () {
+        var sender_user_name = $('nav #user-name').html();
+        var receiver_user_name = $(this)
+            .parents('[data-user-name]')
+            .attr('data-user-name');
 
-    var requests_menu_item = $('#friends-requests ul');
-    requests_menu_item = requests_menu_item
-        .find('[data-user-name="' + receiver_user_name + '"]');
-    var conversation_window_request_status = $('.conversation-window')
-        .find('[data-user-name="' + receiver_user_name + '"]');
-    // if a conversation is opened in the messenger
-    if (conversation_window_request_status.length == 0) {
-        conversation_window_request_status = $('.friend-request-status');
-    }
-    requests_menu_item.find('.decline-request').remove();
-    requests_menu_item
-        .find('.accept-request')
-        .replaceWith('<span class="accepted-request">Accepted</span>');
-    requests_menu_item
-        .removeClass('friend-request')
-        .addClass('friend-request-responded');
-    conversation_window_request_status
-        .replaceWith('<div class="friend-request-status">Request has been accepted</div>');
-    calculateFriendRequests();
-    // update the opposite user with your friend request response
-    App.notification.friend_request_response(sender_user_name,
-        receiver_user_name,'accepted-friend-request');
-
+        var requests_menu_item = $('#friends-requests ul');
+        requests_menu_item = requests_menu_item
+            .find('[data-user-name="' + receiver_user_name + '"]');
+        var conversation_window_request_status = $('.conversation-window')
+            .find('[data-user-name="' + receiver_user_name + '"]');
+        // if a conversation is opened in the messenger
+        if (conversation_window_request_status.length == 0) {
+            conversation_window_request_status = $('.friend-request-status');
+        }
+        requests_menu_item.find('.decline-request').remove();
+        requests_menu_item
+            .find('.accept-request')
+            .replaceWith('<span class="accepted-request">Accepted</span>');
+        requests_menu_item
+            .removeClass('friend-request')
+            .addClass('friend-request-responded');
+        conversation_window_request_status
+            .replaceWith('<div class="friend-request-status">Request has been accepted</div>');
+        calculateFriendRequests();
+        // update the opposite user with your friend request response
+        App.notification.friend_request_response(sender_user_name,
+            receiver_user_name, 'accepted-friend-request');
+    });
     // when a friend request is declined, mark it as declined
     $('body').on('click', '.decline-request a', function () {
         var sender_user_name = $('nav #user-name').html();
